@@ -12,13 +12,15 @@ from langchain.agents import AgentType
 from langchain.agents import initialize_agent, Tool
 import os
 
-os.environ["OPENAI_API_KEY"]    = "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"
-os.environ["GOOGLE_API_KEY"]    = "AIzaSyC_GULKOkPFTFTI3GqSbd6v1U07LUJ4Ook"
-os.environ["GOOGLE_CSE_ID"]     = "334c6e9dd68da48e6"
-os.environ["DB_URI"]            = "mssql+pymssql://wonikadmin:wonikqnc%406139@wiq-qms-sql.database.windows.net:1433/WIQ-QMS-PROD-DB"
 
 st.set_page_config(page_title="LangChain: Chat with SQL DB", page_icon="🦜")
 st.title("🦜 LangChain: Chat with WONIK DB")
+
+os.environ["OPENAI_API_KEY"]    = st.secrets.OPENAI_API_KEY
+
+os.environ["GOOGLE_API_KEY"]      = st.secrets.GOOGLE_API_KEY
+os.environ["GOOGLE_CSE_ID"]       = st.secrets.GOOGLE_CSE_ID
+os.environ["DB_URI"]            = st.secrets.DB_URL
 
 # User inputs
 db_uri = os.getenv("DB_URI")

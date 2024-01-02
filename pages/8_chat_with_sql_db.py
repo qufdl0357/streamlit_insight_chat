@@ -14,16 +14,21 @@ from langchain.prompts import PromptTemplate,ChatPromptTemplate, MessagesPlaceho
 from langchain.memory import ConversationBufferMemory
 
 import os
-os.environ["OPENAI_API_KEY"]      = "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"
+
 
 st.set_page_config(page_title="LangChain: Chat with SQL DB", page_icon="🦜")
 st.title("🦜 LangChain: Chat with SQL DB")
 
+os.environ["OPENAI_API_KEY"]      = st.secrets.OPENAI_API_KEY
+os.environ["DB_USER"] = st.secrets.DB_USER
+os.environ["DB_PW"] = st.secrets.DB_PW
+os.environ["DB_SERVER"] = st.secrets.DB_SERVER
+os.environ["DB_NAME"] = st.secrets.DB_NAME
 #Datasource
-database_user = 'wonikadmin'
-database_password = 'wonikqnc@6139'
-database_server = 'wiq-qms-sql.database.windows.net'
-database_db = 'WIQ-QMS-DEV-DB'
+database_user = os.getenv("DB_USER")
+database_password = os.getenv("DB_PW")
+database_server = os.getenv("DB_SERVER")
+database_db = os.getenv("DB_NAME")
 
 #Connection String
 import urllib.parse

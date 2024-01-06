@@ -9,3 +9,4 @@ pypdf
 pinecone-client
 numexpr
 pymssql
+pymysql

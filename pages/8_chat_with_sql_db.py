@@ -34,9 +34,9 @@ database_db = os.getenv("DB_NAME")
 import urllib.parse
 encoded_password = urllib.parse.quote(database_password)
 
-connection_string = f"mssql+pymssql://{database_user}:{encoded_password}@{database_server}:3333/{database_db}"
+connection_string = f"mysql+pymysql://{database_user}:{encoded_password}@{database_server}:3333/{database_db}"
 
-#Include tables
+#Include tabless
 include_tables=[ 
     'googleplaystore',
     'AppleStore',
